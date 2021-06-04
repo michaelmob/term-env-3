@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# https://github.com/dvorka/hstr
+set -ex
+
+mkdir -p ~/.michael/tmp
+cd ~/.michael/tmp
+git clone https://github.com/dvorka/hstr.git
+
+cd hstr/build/tarball
+./tarball-automake.sh
+
+cd ../..
+./configure && make && make install

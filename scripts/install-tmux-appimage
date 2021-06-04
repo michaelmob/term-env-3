@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# releases: https://github.com/tmux/tmux/releases
+set -ex
+cd "$HOME/.michael"
+
+URL='https://github.com/tmux/tmux/releases/download/3.1b/tmux-3.1b-x86_64.AppImage'
+FILE="./bin/${URL##*/}"
+
+wget -nc -P 'bin/' "$URL"
+chmod u+x "$FILE"
+
+"$FILE" --appimage-extract
+ln -sf "$HOME/.michael/squashfs-root/usr/bin/tmux" 'bin/tmux'
+

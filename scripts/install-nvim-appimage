@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# releases: https://github.com/neovim/neovim/releases/tag/nightly
+set -ex
+cd "$HOME/.michael"
+
+URL='https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage'
+FILE="./bin/${URL##*/}"
+
+wget -nc -P 'bin/' "$URL"
+chmod u+x "$FILE"
+
+"$FILE" --appimage-extract
+ln -sf "$HOME/.michael/squashfs-root/usr/bin/nvim" 'bin/nvim'

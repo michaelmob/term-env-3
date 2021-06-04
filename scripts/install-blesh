@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -ex
+
+mkdir -p ~/.michael/tmp
+cd ~/.michael/tmp
+
+git clone --recursive https://github.com/akinomyoga/ble.sh.git
+make -C ble.sh install PREFIX=~/.local
+
+chmod u+x ~/.local/share/blesh/ble.sh
