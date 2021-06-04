@@ -2,8 +2,7 @@
 # https://github.com/dvorka/hstr
 set -ex
 
-mkdir -p ~/.michael/tmp
-cd ~/.michael/tmp
+cd /tmp
 git clone https://github.com/dvorka/hstr.git
 
 cd hstr/build/tarball

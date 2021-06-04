@@ -2,4 +2,5 @@
 #
 # Usage: ./list-scripts.bash
 #
-echo "$(ls -1 ~/.scripts | fzf)"
+cd "${0%/*}"
+echo "$(ls -1 . | fzf)"

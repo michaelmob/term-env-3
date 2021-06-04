@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -ex
-
-mkdir -p ~/.michael/tmp
-cd ~/.michael/tmp
+cd /tmp
 
 git clone --recursive https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local

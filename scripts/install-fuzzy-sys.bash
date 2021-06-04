@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-f=~/.michael/scripts/fuzzy-sys.bash
-curl -sSL https://raw.githubusercontent.com/NullSense/fuzzy-sys/master/fuzzy-sys.plugin.zsh -o "$f"
-chmod u+x "$f"
-echo -e '\nfuzzy-sys $@' >> "$f"
+set -ex
+cd "${0%/*}/../bin"
+curl -sSL https://raw.githubusercontent.com/NullSense/fuzzy-sys/master/fuzzy-sys.plugin.zsh -o fuzzy-sys.bash
+chmod u+x fuzzy-sys.bash
+echo -e '\nfuzzy-sys $@' >> fuzzy-sys.bash
