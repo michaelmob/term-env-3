@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+cd "${0%/*}/"
+source "$PWD/utilities.bash"
+
+pkgs=""
+
+has_pkg() {
+  if which "$1" > /dev/null; then
+    info_msg "$1 is already installed"
+  else
+    error_msg "$1 is to be installed..."
+    pkgs+=" $1"
+  fi
+}
+
+has_pkg sudo
+has_pkg git
+has_pkg make
+has_pkg gawk
+
+if [[ "$pkgs" ]]; then
+  echo 'Packages to be installed...' "$pkgs"
+  sudo apt install $pkgs
+else
+  success_msg 'Dependencies are satisfied'
+fi

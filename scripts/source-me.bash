@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 [[ -x /etc/bash.bashrc ]] && source /etc/bash.bashrc
-echo "$PWD"
-export PATH="$PWD/bin:$PWD/scripts:$PATH"
 
+export PATH="$PWD/bin:$PWD/scripts:$PATH"
 for file in $PWD/bashrc.d/*.{sh,bash}; do
   source $file
 done

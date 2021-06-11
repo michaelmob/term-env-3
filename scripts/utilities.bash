@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 generic_msg() { echo -e "\033[0;$1m$2:\033[0m ${@:3}"; } # Generic
-error_msg() { generic_msg 31 Error "$@" 2>&1; }          # Red: 31
-alias success_msg='generic_msg 32 Success'               # Green: 32
+error_msg()   { generic_msg 31 Error "$@" 2>&1;        } # Red: 31
+success_msg() { generic_msg 32 Success "$@";           } # Green: 32
+info_msg()    { generic_msg 33 Info "$@";              } # Blue: 33
 
 N_ARGS=$#
 takes_at_least_n_args() {
