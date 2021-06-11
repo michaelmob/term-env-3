@@ -2,11 +2,13 @@
 # https://github.com/dvorka/hstr
 set -ex
 
+# debian dependencies
+sudo apt install -y automake libncursesw5-dev lib32readline-dev pkg-config
+
 cd /tmp
 [ -d /tmp/hstr ] && rm -rf /tmp/hstr
 git clone https://github.com/dvorka/hstr.git
 
-# dependencies: automake, libncursesw5-dev, lib32readline-dev
 cd hstr/build/tarball
 ./tarball-automake.sh
 
