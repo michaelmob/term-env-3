@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-set -ex
 cd /tmp
 
+[ -d ble.sh ] && rm -rf ble.sh
 git clone --recursive https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local
 
