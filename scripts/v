@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-exec vim -u "${0%/*}/../config/vimrc" $@
+HERE="${0%/*}/.."
+exec "$HERE/squashfs-root/usr/bin/nvim" -u "$HERE/config/vimrc" $@
