@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-cd /tmp
-
-[ -d ble.sh ] && rm -rf ble.sh
-git clone --recursive https://github.com/akinomyoga/ble.sh.git
-make -C ble.sh install PREFIX=~/.local
-
+set -ex
+wget -q https://github.com/akinomyoga/ble.sh/releases/download/v0.4.0-devel2/ble-0.4.0-devel2.tar.xz
+tar xJf ble-0.4.0-devel2.tar.xz -C ~/.local/share/blesh
 chmod u+x ~/.local/share/blesh/ble.sh

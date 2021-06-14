@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-cd "${0%/*}/.."
-TERM=screen exec bin/tmux -f config/tmux.conf
+export HERE="${0%/*}/.."
+TERM=xterm exec "$HERE/bin/tmux" -f "$HERE/config/tmux.conf"

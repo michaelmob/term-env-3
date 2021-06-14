@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # shortcuts
 alias ls='ls --color=auto'
 alias  l='ls -la'
