@@ -29,11 +29,11 @@ alias bashrc="v -p $HERE/bashrc.d/ $HERE/config/bashrc"
 alias nvimrc="v $HERE/config/init.nvim"
 alias tmuxrc="v -O $HERE/config/tmux.conf"
 
+alias edit-aliases="v $HERE/bashrc.d/aliases.bash"
+
 # util
 alias clip='xclip -selection clipboard'
 alias c='clear'
 
-# edit
-alias edit-aliases="v $HERE/bashrc.d/aliases.bash"
 
 alias mpv='mpv --ytdl'

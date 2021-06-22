@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
-history -a
-export HERE="${0%/*}/.."
-TERM=xterm exec "$HERE/bin/tmux" -f "$HERE/config/tmux.conf"
+export HERE="$(realpath "${0%/*}/..")"
+export TERM=xterm
+
+ARGS="${@:-new-session -A -s default}"
+"$HERE/bin/tmux" -f "$HERE/config/tmux.conf" -L portable-config $ARGS
+
+
