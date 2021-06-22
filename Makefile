@@ -1,14 +1,13 @@
 # vim: ts=2
 check:
-
-install:
-	# sudo apt install git make gawk
 	./scripts/check-dependencies
-	./scripts/install-nvim-appimage
-	./scripts/install-tmux-appimage
+
+install: check
+	# sudo apt install git make gawk
 	./scripts/install-blesh
 	./scripts/install-fzf
-	./scripts/install-fuzzy-sys
+	./scripts/install-nvim-appimage
+	./scripts/install-tmux-appimage
 
 run:
 	./scripts/run-me.bash
@@ -16,3 +15,8 @@ run:
 clean:
 	rm -rf ./bin
 	rm -rf ./squashfs-root
+
+full-clean: clean
+	rm -rf ./squashfs-root
+	#rm -rf ~/.local/share/nvim/site/{plugged,autoload}
+	#rm -rf ~/.local/share/blesh

@@ -3,7 +3,8 @@ set -x
 
 key_path='org.gnome.desktop.input-sources xkb-options'
 gsettings get $key_path
-gsettings set $key_path "['altwin:swap_alt_win', 'lv3:caps_switch']"
+gsettings set $key_path "['lv3:caps_switch']"
+#gsettings set $key_path "['altwin:swap_alt_win', 'lv3:caps_switch']"
 
 key_path='org.gnome.desktop.input-sources sources'
 gsettings get $key_path

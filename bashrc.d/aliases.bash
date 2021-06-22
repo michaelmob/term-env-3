@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shortcuts
 alias ls='ls --color=auto'
-alias  l='ls -la'
+alias l='ls -la'
 
 # git
 alias gs='git status'
@@ -18,17 +18,22 @@ alias ds='dnf search'
 
 # systemctl
 alias sss='sudo systemctl status'
-alias  ss='sudo systemctl'
+alias ss='sudo systemctl'
 
 # editor
-alias sudovim='EDITOR=vim sudoedit'
-alias      sv='sudovim'
+alias sudovim='EDITOR=nvim sudoedit'
+alias sv='sudovim'
 
 # rc
-alias bashrc='vim ~/.michael/bashrc.d/'
-alias  vimrc='vim ~/.michael/vimrc'
-alias tmuxrc='vim -O ~/.tmuxp.yml ~/.tmux.conf'
+alias bashrc="v -p $HERE/bashrc.d/ $HERE/config/bashrc"
+alias nvimrc="v $HERE/config/init.nvim"
+alias tmuxrc="v -O $HERE/config/tmux.conf"
 
 # util
 alias clip='xclip -selection clipboard'
-alias    c='clear'
+alias c='clear'
+
+# edit
+alias edit-aliases="v $HERE/bashrc.d/aliases.bash"
+
+alias mpv='mpv --ytdl'

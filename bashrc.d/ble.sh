@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # https://github.com/akinomyoga/ble.sh
-if [[ $- == *i* ]]; then
-  if [[ -x ~/.local/share/blesh/ble.sh ]]; then
-    source ~/.local/share/blesh/ble.sh
-  else
-    echo 'ble.sh bash-autocompletion not installed, run "install-blesh"'
-  fi
-fi
+
+_setup_blesh() {
+  source ~/.local/share/blesh/ble.sh
+  source $HERE/config/blerc
+}
+
+[[ $- == *i* ]] && [[ -x ~/.local/share/blesh/ble.sh ]] && _setup_blesh \
+  || echo '# ble.sh bash-completions are not installed, run "install-blesh"'

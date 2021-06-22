@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec nnn $@
+shopt -s histverify

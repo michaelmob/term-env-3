@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Usage: ./install-hugo
+#
+# releases: https://github.com/gohugoio/hugo/releases
+set -ex
+cd /tmp
+
+URL='https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_0.84.0_Linux-64bit.tar.gz'
+
+wget -O hugo.tar.gz "$URL"
+tar xvf hugo.tar.gz 
+
+chmod u+x 'hugo'
+sudo mv 'hugo' '/usr/local/bin/hugo'

@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
-for file in $HERE/bashrc.d/*.{sh,bash}; do
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." > /dev/null && pwd)"
+
+[ "$PATH" != *"$HERE/bin"* ] && export PATH="$HERE/bin:$PATH"
+[ "$PATH" != *"$HERE/scripts"* ] && export PATH="$HERE/scripts:$PATH"
+
+export EDITOR='nvim'
+export FM='nnn'
+
+for file in $HERE/bashrc.d/*.{sh,bash,bashrc}; do
   source $file
 done

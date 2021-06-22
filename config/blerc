@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+bind 'set completion-ignore-case on'
+
+bleopt indent_offset=2
+bleopt indent_tabs=0
+
+ble-sabbrev L='| less'
+ble-sabbrev B='| bat'
+ble-sabbrev G='| grep'
+ble-sabbrev R='| rg'
+
+#ble-face auto_complete='fg=242,bg=235'
+#ble-face auto_complete='fg=white,bg=69'
+#ble-face auto_complete='fg=240,underline,italic'
+ble-face auto_complete='fg=gray,italic'
+#ble-face auto_complete='fg=242,italic'
