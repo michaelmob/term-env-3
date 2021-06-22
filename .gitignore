@@ -7,3 +7,5 @@
 !bashrc.d/
 bashrc.d/completion.bash
 bashrc.d/key-bindings.bash
+bashrc.d/fzf-completions.bashrc
+bashrc.d/fzf-keybindings.bashrc

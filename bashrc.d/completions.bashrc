@@ -4,7 +4,7 @@
 [ -f /usr/share/bash-completion/bash_completion ] &&
   source /usr/share/bash-completion/bash_completion
 
-# which-edit command
+# edit-script command
 _edit_script_completions() {
   [ "$HERE" ] && COMPREPLY=($(ls -1 $HERE/scripts))
 }
