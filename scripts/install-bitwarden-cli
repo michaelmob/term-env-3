@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+cd "${0%/*}"
+source utilities.bash
+
+cd /tmp
+wget -qO- 'https://vault.bitwarden.com/download/?app=cli&platform=linux' > /tmp/bw-linux.zip
+unzip bw-linux.zip
+
+BW="${0%/*}/../bin/bw"
+mv /tmp/bw "$BW"
+chmod u+x "$BW"
+

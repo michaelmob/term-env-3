@@ -2,7 +2,11 @@
 export HERE="$(realpath "${0%/*}/..")"
 export TERM=xterm
 
-ARGS="${@:-new-session -A -s default}"
-"$HERE/bin/tmux" -f "$HERE/config/tmux.conf" -L portable-config $ARGS
+"$HERE/scripts/install-tmux-appimage"
+"$HERE/scripts/install-nvim-appimage"
 
+TMUX="$HERE/bin/tmux"
+TMUXRC="$HERE/config/tmux.conf"
+CONFIG='portable-config'
 
+"$TMUX" -f "$TMUXRC" -L $CONFIG new-session -A -s ${1:-default}

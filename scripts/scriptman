@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# vim: ts=2 sw=2 et noai
+
+# main menu
+# list scripts and show preview of script
+# ctrl-e
+#   edit selected script
+#   ---
+#   new script
+#   new template
+cd "${0%/*}"
+
+# if VISUAL_EDITOR is set then use it
+[[ "$VISUAL_EDITOR" ]] && EDITOR="$VISUAL_EDITOR"
+[[ -z "$EDITOR" ]] && EDITOR="vi"
+
+HEADER="Press CTRL-E to open scripts directory"
+
+IO='< /dev/tty > /dev/tty'
+CTRL_E="ctrl-e:execute~${FILE_MANAGER:-nnn} {} $IO~"
+
+file="$(fdfind . | fzf \
+    --header="$HEADER" \
+    --ansi             \
+    --preview="bat {}" \
+    --height=50%       \
+    --tabstop=2        \
+    --bind="$CTRL_E"   \
+$@)"
+
+[[ -f "$file" ]] && echo $file | $EDITOR -

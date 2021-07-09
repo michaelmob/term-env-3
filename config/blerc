@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 bind 'set completion-ignore-case on'
 
+bleopt history_share=1
+
 bleopt indent_offset=2
 bleopt indent_tabs=0
 
@@ -12,5 +14,15 @@ ble-sabbrev R='| rg'
 #ble-face auto_complete='fg=242,bg=235'
 #ble-face auto_complete='fg=white,bg=69'
 #ble-face auto_complete='fg=240,underline,italic'
-ble-face auto_complete='fg=gray,italic'
+#ble-face auto_complete='fg=gray,italic'
 #ble-face auto_complete='fg=242,italic'
+
+ble-import -d contrib/fzf-completion
+ble-import -d contrib/fzf-key-bindings
+
+# Key bindings can be controlled with the shell function, ble-bind. For example, with the following setting, "Hello, world!" will be inserted on typing C-x h
+# ble-bind -f 'C-x h' 'insert-string "Hello, world!"'
+# ble-bind -c 'M-c' 'my-command'
+# ble-bind -x 'C-r' 'my-edit-function'
+# $ ble-bind -P
+# $ ble-bind -L

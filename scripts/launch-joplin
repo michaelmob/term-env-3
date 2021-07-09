@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # vim: ts=2 sw=2 et
 focused_window="$(xdotool getactivewindow getwindowname)"
 
 # if window is focused
-if [ "$focused_window" = 'Joplin' ]; then
+if [[ "$focused_window" = 'Joplin' ]]; then
   # minimize window
   xdotool getactivewindow windowminimize
   exit 0

@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." > /dev/null && pwd)"
 
-[ "$PATH" != *"$HERE/bin"* ] && export PATH="$HERE/bin:$PATH"
-[ "$PATH" != *"$HERE/scripts"* ] && export PATH="$HERE/scripts:$PATH"
+[[ $PATH == *"~/.local/scripts"* ]] || export PATH="~/.local/scripts:$PATH"
+[[ $PATH == *"~/.local/bin"* ]] || export PATH="~/.local/bin:$PATH"
+[[ $PATH == *"$HERE/bin"* ]] || export PATH="$HERE/bin:$PATH"
+[[ $PATH == *"$HERE/scripts"* ]] || export PATH="$HERE/scripts:$PATH"
 
-export EDITOR='nvim'
-export FM='nnn'
+export EDITOR=nvim
+export FM=nnn
 
-for file in $HERE/bashrc.d/*.{sh,bash,bashrc}; do
+for file in $HERE/bashrc.d/*; do
   source $file
 done
