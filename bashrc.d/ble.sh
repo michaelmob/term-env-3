@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # https://github.com/akinomyoga/ble.sh
 
+# make user changes in ~/config/blerc
+# by running `blerc`
+
 _setup_blesh() {
   source ~/.local/share/blesh/ble.sh
   source $HERE/config/blerc
