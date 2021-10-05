@@ -11,18 +11,18 @@ ble-sabbrev B='| bat'
 ble-sabbrev G='| grep'
 ble-sabbrev R='| rg'
 
-#ble-face auto_complete='fg=242,bg=235'
-#ble-face auto_complete='fg=white,bg=69'
-#ble-face auto_complete='fg=240,underline,italic'
-#ble-face auto_complete='fg=gray,italic'
-#ble-face auto_complete='fg=242,italic'
+ble-face disabled='fg=1'
+ble-face auto_complete='fg=white,bg=69'
+ble-face command_alias='fg=white'
 
 ble-import -d contrib/fzf-completion
 ble-import -d contrib/fzf-key-bindings
 
 # Key bindings can be controlled with the shell function, ble-bind. For example, with the following setting, "Hello, world!" will be inserted on typing C-x h
-# ble-bind -f 'C-x h' 'insert-string "Hello, world!"'
-# ble-bind -c 'M-c' 'my-command'
-# ble-bind -x 'C-r' 'my-edit-function'
-# $ ble-bind -P
-# $ ble-bind -L
+
+# Use tab <C-i> to auto-complete
+ble-bind -m 'auto_complete' -f 'C-i' 'auto_complete/insert-on-end'
+
+# Ctrl-c to kill line and start insert mode
+ble-bind -m vi_nmap -f 'C-c' 'discard-line vi_imap/overwrite-mode'
+
