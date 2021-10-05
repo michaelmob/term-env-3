@@ -6,6 +6,14 @@ focused_window="$(xdotool getactivewindow getwindowname)"
 if [[ "$focused_window" = 'Joplin' ]]; then
   # minimize window
   xdotool getactivewindow windowminimize
+
+  # move window to last workspace
+  #NUM="$(wmctrl -d | wc -l)"
+  #wmctrl -r Joplin -t "$((NUM-1))"
+
+  # move window to first workspace
+  wmctrl -r Joplin -t 0
+
   exit 0
 fi
 
@@ -22,7 +30,7 @@ fi
 #    is made up of exactly two shell command line arguments.
 # try to focus joplin
 if wmctrl -FR Joplin; then
-  wmctrl -Fr Joplin -b add,above
+  #wmctrl -Fr Joplin -b add,above
   exit 0
 fi
 
