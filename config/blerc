@@ -2,16 +2,17 @@
 bind 'set completion-ignore-case on'
 
 bleopt history_share=1
-
 bleopt indent_offset=2
 bleopt indent_tabs=0
+
+bleopt exec_errexit_mark=$'\e[91m[exit %d]\e[m'
 
 ble-sabbrev L='| less'
 ble-sabbrev B='| bat'
 ble-sabbrev G='| grep'
 ble-sabbrev R='| rg'
 
-ble-face disabled='fg=1'
+ble-face disabled=''
 ble-face auto_complete='fg=white,bg=69'
 ble-face command_alias='fg=white'
 

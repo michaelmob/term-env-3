@@ -6,12 +6,11 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." > /dev/null && pwd)"
 [[ $PATH == *"$HERE/bin"* ]] || export PATH="$HERE/bin:$PATH"
 [[ $PATH == *"$HERE/scripts"* ]] || export PATH="$HERE/scripts:$PATH"
 
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 export EDITOR=nvim
 export FM=nnn
 
 for file in $HERE/bashrc.d/*; do
   source $file
 done
+
+[ -z "$TMUX" ] && export TERM=xterm-256color

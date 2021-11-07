@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 # https://github.com/akinomyoga/ble.sh
 
-# make user changes in ~/config/blerc
-# by running `blerc`
-
-_setup_blesh() {
-  source ~/.local/share/blesh/ble.sh
-  source $HERE/config/blerc
-}
-
-[[ $- == *i* ]] && [[ -x ~/.local/share/blesh/ble.sh ]] && _setup_blesh \
-  || echo '# ble.sh bash-completions are not installed, run "install-blesh"'
+# make user changes in `~/config/blerc` by running `blerc`
+if [[ $- == *i* ]]; then
+  if [[ -x ~/.local/share/blesh/ble.sh ]]; then
+    source ~/.local/share/blesh/ble.sh --rcfile $HERE/config/blerc
+  else
+    echo '# ble.sh is not installed, run "install-blesh" for bash completions'
+  fi
+fi

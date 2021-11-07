@@ -2,7 +2,7 @@
 # releases: https://github.com/tmux/tmux/releases
 cd "${0%/*}/.."
 TMUX="$PWD/squashfs-root/usr/bin/tmux"
-[[ -x "$TMUX" ]] && exit 0
+[[ -x "$TMUX" ]] && [[ "$1" != '-f' ]] && exit 0
 
 set -ex
 

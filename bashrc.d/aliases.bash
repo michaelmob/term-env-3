@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
+
 # shortcuts
 alias ls='ls --color=auto'
 alias l='ls -la'
@@ -20,12 +21,13 @@ alias ds='dnf search'
 alias sss='sudo systemctl status'
 alias ss='sudo systemctl'
 
-# editor
-alias sudovim='EDITOR=nvim sudoedit'
-alias sv='sudovim'
+# files
+alias n='nnn'
+alias v="$HERE/scripts/v"
+alias sv="EDITOR=$HERE/scripts/v sudoedit"
 
 # rc
-alias bashrc="v -p $HERE/bashrc.d/ $HERE/config/bashrc"
+alias bashrc="v -p $HERE/config/bashrc $HERE/bashrc.d/"
 alias bashrcd="n $HERE/bashrc.d"
 alias nvimrc="v $HERE/config/init.nvim"
 alias tmuxrc="v -O $HERE/config/tmux.conf"
