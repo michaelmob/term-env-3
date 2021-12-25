@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Usage: ./my-script arg1 [arg2]
+#
+cd "${0%/*}"
+source utilities.bash
+
+# download
+wget -O /tmp/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+
+# extract
+cd /tmp
+rm -r ripgrep
+mkdir ripgrep
+tar xf ripgrep.tar.gz -C /tmp/ripgrep
+
+# install
+RG="${0%/*}/../bin/rg"
+mv /tmp/ripgrep/ripgrep-*/rg "$RG"
+chmod u+x "$RG"
+success_msg 'ripgrep hopefully installed' && exit 0
