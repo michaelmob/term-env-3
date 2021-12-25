@@ -3,6 +3,7 @@
 # shortcuts
 alias ls='ls --color=auto'
 alias l='ls -la'
+alias scripts='cd ~/portable-config/scripts'
 
 # git
 alias gs='git status'
@@ -40,4 +41,5 @@ alias clip='xclip -selection clipboard'
 alias c='clear'
 alias exit='tmux kill-pane'
 
+# apps
 alias mpv='mpv --ytdl'
