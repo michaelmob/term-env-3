@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# cdi: cd interactive
+#
+[[ "$1" ]] && args="--query $@"
+dir="$(fd --type directory | fzf --select-1 $args)"
+[[ "$dir" ]] && cd -- "$dir"
+

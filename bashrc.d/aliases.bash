@@ -41,9 +41,10 @@ alias nnn-edit-aliases="v $HERE/bashrc.d/aliases.bash"
 
 # util
 alias clip='xclip -selection clipboard'
-alias c='clear'
+#alias c='clear'
 alias exit='tmux kill-pane'
 alias update='(cd $HERE && git pull)'
+alias c='source cdi'
 
 # apps
 alias mpv='mpv --ytdl'
