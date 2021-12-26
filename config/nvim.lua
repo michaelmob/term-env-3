@@ -41,8 +41,8 @@ require('packer').startup(function()
 end)
 
 --2-character-wide indents
-vim.bo.tabstop = 2
-vim.bo.shiftwidth = 2
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 
 --Set highlight on search
 vim.o.hlsearch = false
