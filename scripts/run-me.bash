@@ -27,7 +27,7 @@ main() {
         cmd+='; choose-tree -s'
     fi
     
-    "$tmux" -f "$tmuxrc" -L $config_name $cmd
+    "$tmux" -2 -f "$tmuxrc" -L $config_name $cmd
 }
 
 

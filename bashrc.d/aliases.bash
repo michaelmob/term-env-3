@@ -3,6 +3,8 @@
 # shortcuts
 alias ls='ls --color=auto'
 alias l='ls -la'
+
+alias bin='cd ~/portable-config/bin'
 alias scripts='cd ~/portable-config/scripts'
 
 # git
