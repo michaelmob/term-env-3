@@ -3,6 +3,5 @@
 # cdi: cd interactive
 #
 [[ "$1" ]] && args="--query $@"
-dir="$(fd --type directory | fzf --select-1 $args)"
-[[ "$dir" ]] && cd -- "$dir"
-
+dir="$(fd -HI | fzf --select-1 $args)"
+[[ "$dir" ]] && cd -- "$(dirname "$dir")"
