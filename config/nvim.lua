@@ -38,11 +38,16 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 end)
 
+--2-character-wide indents
+vim.bo.tabstop = 2
+vim.bo.shiftwidth = 2
+
 --Set highlight on search
 vim.o.hlsearch = false
 
 --Make line numbers default
 vim.wo.number = true
+vim.wo.relativenumber = true
 
 --Enable mouse mode
 vim.o.mouse = 'a'
@@ -64,11 +69,11 @@ vim.wo.signcolumn = 'yes'
 --Set colorscheme (order is important here)
 vim.o.termguicolors = true
 vim.g.onedark_terminal_italics = 2
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme default]]
 
 --Set statusbar
 vim.g.lightline = {
-  colorscheme = 'onedark',
+  colorscheme = 'default',
   active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
   component_function = { gitbranch = 'fugitive#head' },
 }

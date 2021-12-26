@@ -8,7 +8,7 @@ source utilities.bash
 #success_msg 'Script executed' && exit
 
 cd /tmp
-git clone git@github.com:eradman/entr.git
+git clone https://github.com/eradman/entr.git
 
 cd entr
 ./configure
