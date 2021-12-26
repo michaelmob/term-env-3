@@ -118,7 +118,7 @@ require('gitsigns').setup {
 -- Nnn
 require("nnn").setup()
 --Add shortcut
-vim.api.nvim_set_keymap('n', '-', ":NnnPicker<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '-', ":NnnPicker %:p:h<CR>", { noremap = true, silent = true })
 
 
 -- Telescope
