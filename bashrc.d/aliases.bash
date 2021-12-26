@@ -37,6 +37,7 @@ alias tmuxrc="v -O $HERE/config/tmux.conf"
 alias tmuxrc-watch="ls $HERE/config/tmux.conf | entr tmux source-file $HERE/config/tmux.conf"
 alias blerc="v $HERE/config/blerc"
 alias edit-aliases="v $HERE/bashrc.d/aliases.bash"
+alias edit-functions="v $HERE/bashrc.d/functions.bash"
 alias nnn-edit-aliases="v $HERE/bashrc.d/aliases.bash"
 
 # util
