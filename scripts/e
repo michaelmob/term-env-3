@@ -2,5 +2,6 @@
 #
 # Usage: e <possible filename>
 #
-file="$(fzf --select-1 --query $@)"
+[[ "$1" ]] && args="--query $@"
+file="$(fzf --select-1 $args)"
 [[ "$file" ]] && v "$file"
