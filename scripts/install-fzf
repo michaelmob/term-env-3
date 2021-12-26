@@ -5,6 +5,7 @@
 cd "${0%/*}/.."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --bin
+~/.fzf/bin/fzf{,-tmux} ${HERE:-~/portable-config}/bin
 
 wget -qO- https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux > ./bin/fzf-tmux
 chmod u+x ./bin/fzf-tmux
