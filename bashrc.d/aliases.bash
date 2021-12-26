@@ -4,8 +4,8 @@
 alias ls='ls --color=auto'
 alias l='ls -la'
 
-alias bin='cd ~/portable-config/bin'
-alias scripts='cd ~/portable-config/scripts'
+alias bin='cd ~/portable-config/bin; ls'
+alias scripts='cd ~/portable-config/scripts; ls'
 
 # git
 alias gs='git status'
