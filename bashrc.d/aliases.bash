@@ -33,11 +33,13 @@ alias sv="EDITOR=$HERE/scripts/v sudoedit"
 alias bashrc="v -p $HERE/config/bashrc $HERE/bashrc.d/"
 alias bashrcd="n $HERE/bashrc.d"
 alias nvimrc="v $HERE/config/nvim.lua"
-alias tmuxrc="v -O $HERE/config/tmux.conf; tmux source-file $HERE/config/tmux.conf"
-alias tmuxrc-watch="ls $HERE/config/tmux.conf | entr tmux source-file $HERE/config/tmux.conf"
 alias blerc="v $HERE/config/blerc"
 alias edit-aliases="v $HERE/bashrc.d/aliases.bash; source $HERE/bashrc.d/aliases.bashrc"
 alias nnnrc="v $HERE/bashrc.d/nnn.bashrc; source $HERE/bashrc.d/nnn.bashrc"
+
+# tmux
+alias tmuxrc="v -O $HERE/config/tmux.conf; tmux source-file $HERE/config/tmux.conf"
+alias tmuxrc-watch="ls $HERE/config/tmux.conf | entr tmux source-file $HERE/config/tmux.conf"
 
 # util
 alias clip='xclip -selection clipboard'
