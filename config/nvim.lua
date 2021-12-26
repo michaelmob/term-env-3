@@ -223,7 +223,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 local lsp_installer = require('nvim-lsp-installer')
 lsp_installer.on_server_ready(function(server)
-    local opts = {}
+    local opts = { on_attach = on_attach }
 
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
