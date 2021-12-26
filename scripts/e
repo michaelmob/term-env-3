@@ -2,5 +2,23 @@
 #
 # Usage: e <possible filename>
 #
-r="$(fd $@)"
-[[ "$r" == *$'\n'* ]] && echo -e "$r" || $EDITOR "$r"
+
+# get files
+t="$(mktemp)"
+fd $@ > "$t"
+r="$(<$t)"
+
+# if result contains new line then open results in fzf
+# and set new result from the file selected from fzf
+[[ "$r" == *$'\n'* ]] \
+	&& r="$(cat $t | fzf)"
+
+# delete temp file
+rm "$t"
+
+# is the result empty?
+# if not, open result in editor
+# or: exit with error code 1
+[[ -z $r ]] \
+	|| $EDITOR "$r" \
+	|| echo "No files found." && exit 1

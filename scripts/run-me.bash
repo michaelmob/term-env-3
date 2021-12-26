@@ -24,7 +24,8 @@ main() {
     # if session name is empty, set to default and open session chooser
     local cmd="new-session -A -s ${session_name:-default}"
     if [[ -z "$session_name" ]]; then
-        cmd+='; choose-tree -s'
+        echo uh
+        #cmd+='; choose-tree -s'
     fi
     
     "$tmux" -2 -f "$tmuxrc" -L $config_name $cmd
