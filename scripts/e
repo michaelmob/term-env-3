@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Usage: e <possible filename>
+#
+r="$(fd $@)"
+[[ "$r" == *$'\n'* ]] && echo -e "$r" || $EDITOR "$r"
