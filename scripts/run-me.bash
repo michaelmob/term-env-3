@@ -2,35 +2,59 @@
 export HERE="$(realpath "${0%/*}/..")"
 export TERM=xterm
 
-ask_session_name() {
-    dialog --stdout --inputbox 'enter tmux session name (empty to select)' 10 40
-}
-
-main() {
-    "$HERE/scripts/install-tmux-appimage"
-    "$HERE/scripts/install-nvim-appimage"
-    
-    local tmux="$HERE/bin/tmux"
-    local tmuxrc="$HERE/config/tmux.conf"
-    local config_name='portable-config'
-    
-    # session name from $1 or ask for input
-    local session_name="$1"
-    #if [[ -z "$session_name" ]]; then
-    #    session_name="$(ask_session_name)"
-    #fi
-    
-    # set new_session command variable
-    # if session name is empty, set to default and open session chooser
-    local cmd="new-session -A -s ${session_name:-default}"
-    if [[ -z "$session_name" ]]; then
-        echo uh
-        #cmd+='; choose-tree -s'
-    fi
-    
-    "$tmux" -2 -f "$tmuxrc" -L $config_name $cmd
-}
-
-
 trap clear EXIT INT
-main $@
+
+#
+# install tmux and nvim
+#
+install_prereqs() {
+	"$HERE/scripts/install-tmux-appimage"
+	"$HERE/scripts/install-nvim-appimage"
+	"$HERE/scripts/install-fzf"
+}
+
+#
+# tmux with custom config on unique socket
+#
+mux() {
+	local tmux="$HERE/bin/tmux"
+	local tmuxrc="$HERE/config/tmux.conf"
+	local socket='portable-config'
+
+	"$tmux" -2 -f "$tmuxrc" -L $socket $@
+}
+
+#
+# if we are given one argument, use it as the session name
+#
+main1() {
+	if [[ "$#" = 1 ]]; then
+		mux new-session -A -s "$1"
+		exit 0
+	fi
+}
+
+#
+# show all unattached in fzf
+#
+main2() {
+	# get list of all windows that arent attached
+	local unattached="$(mux ls | grep -v '(attached)$')"
+
+	# if list is empty, create new session with random word
+	if [[ -z "$unattached" ]]; then
+		mux new-session -A -s "$("$HERE/scripts/random-word")"
+
+	# else show list and open session of selected
+	else
+		local session_full="$(echo $unattached | ~/.fzf/bin/fzf --reverse --select-1)"
+		local session_name="${session_full%%:*}"
+		mux new-session -A -s "${session_name//:}"
+		exit 0
+	fi
+}
+
+
+install_prereqs
+main1 $@  # one argument supplied
+main2 $@  # no arguments supplied
