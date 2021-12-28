@@ -18,6 +18,7 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   use 'tpope/vim-surround' -- "cs(]" to change "(data)" to "[ data ]"
+	use 'luukvbaal/nnn.nvim'
   --use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -38,7 +39,6 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-	use 'luukvbaal/nnn.nvim'
 end)
 
 --2-character-wide indents
@@ -96,6 +96,14 @@ vim.cmd [[
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
+]]
+
+--
+vim.cmd [[
+  augroup TmuxWindows
+    autocmd!
+		autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+	augroup end
 ]]
 
 --Map blankline
