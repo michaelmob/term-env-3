@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-nnn /etc/apt/sources.list.d/

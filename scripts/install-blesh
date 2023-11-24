@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -x
-cd /tmp
-git clone --recursive 'https://github.com/akinomyoga/ble.sh'
-make -C ble.sh install PREFIX=~/.local
-chmod u+x ~/.local/share/blesh/ble.sh
-echo 'Success!'
-exit 0

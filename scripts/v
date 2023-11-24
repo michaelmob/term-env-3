@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-HERE="${0%/*}/.."
-exec "$HERE/squashfs-root/usr/bin/nvim" -u "$HERE/config/nvim.lua" $@

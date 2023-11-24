@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-word="$(shuf -n 1 /usr/share/dict/american-english)"
-echo ${word%\'*}

@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-git config --global url."git@github.com:".insteadOf "https://github.com/"

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# https://www.cyberciti.biz/faq/how-do-i-find-the-largest-filesdirectories-on-a-linuxunixbsd-filesystem/#comment-38082
-for i in G M K; do du -ah | grep [0-9]$i | sort -nr -k 1; done | head -n 11

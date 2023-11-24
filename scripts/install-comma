@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-echo 'alias ,="~/portable-config/scripts/run-me.bash"' >> ~/.bashrc

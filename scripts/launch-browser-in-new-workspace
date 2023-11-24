@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-set -ex
-NUM="$(wmctrl -d | wc -l)"
-NUM="$((NUM-1))"
-wmctrl -r :ACTIVE: -t $NUM && wmctrl -s $NUM

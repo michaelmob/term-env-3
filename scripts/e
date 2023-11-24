@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#
-# Usage: e <possible filename>
-#
-[[ "$1" ]] && args="--query $@"
-file="$(fzf --select-1 $args)"
-[[ "$file" ]] && v "$file"
