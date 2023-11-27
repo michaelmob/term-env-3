@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+prompt() {
+  read -p "$1 (y/n): " -n 1 -r; echo
+  [[ $REPLY =~ ^[Yy]$ ]] || return 1
+}
+
+HAS_GIT="$(which git)"
+[[ -z "$HAS_GIT" ]] && prompt 'Missing git. Install it?' && \
+  sudo apt install git
+
+HAS_RG="$(which rg)"
+[[ -z "$HAS_RG" ]] && prompt 'Missing ripgrep. Install it?' && \
+  sudo apt install ripgrep
+
+HAS_FZF="$(which fzf)"
+[[ -z "$HAS_FZF" ]] && prompt 'Missing fzf. Install it?' && \
+  sudo apt install fzf
+
+HAS_TMUX="$(which tmux)"
+[[ -z "$HAS_TMUX" ]] && prompt 'Missing tmux. Install it?' && {
+  sudo apt install tmux
+  ln -sf 
+}
+
+HAS_VIM="$(which vim)"
+[[ -z "$HAS_VIM" ]] && prompt 'Missing vim. Install it?' && {
+  sudo apt install vim
+  ln -sf "$HOME/.mcm/.vimrc" "$HOME/.vimrc"
+  ln -sf "$HOME/.mcm/.tmux.conf" "$HOME/.tmux.conf"
+
+  if [[ "$HAS_GIT" ]]; then
+    VIM_PLUGINS="$HOME/.vim/pack/plugins/start"
+    git clone 'https://github.com/christoomey/vim-tmux-navigator' "$VIM_PLUGINS/vim-tmux-navigator"
+    git clone 'https://github.com/tpope/vim-commentary' "$VIM_PLUGINS/vim-commentary"
+    git clone 'https://github.com/tpope/vim-surround' "$VIM_PLUGINS/vim-surround"
+    git clone 'https://github.com/terryma/vim-expand-region' "$VIM_PLUGINS/vim-expand-region"
+    git clone 'https://github.com/chrisbra/Recover.vim' "$VIM_PLUGINS/Recover.vim"
+  else
+    echo 'WARNING: Missing git. Not installing plugins.'
+  fi
+}
